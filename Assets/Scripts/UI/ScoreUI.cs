@@ -12,7 +12,7 @@ public class ScoreUI : MonoBehaviour
     void Start()
     {
         scoreText = GetComponentInChildren<TMP_Text>();
-        if(scoreSystem!=null)
+        if (scoreSystem != null)
         {
             scoreSystem.OnScoreChanged += UpdateScore;
             UpdateScore(scoreSystem.CurrentScore);

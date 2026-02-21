@@ -27,7 +27,7 @@ namespace CardMatch.BoardSystem
 
         private int seed;
         private int totalMatchesRequired;
-        [HideInInspector]public int matchedCount;
+        [HideInInspector] public int matchedCount;
 
         public int Seed => seed;
         public BoardPreset Preset => preset;
@@ -169,7 +169,7 @@ namespace CardMatch.BoardSystem
                 }
             }
             matchResolver.OnMatch += HandleMatch;
-            if(matchedCount >= totalMatchesRequired)
+            if (matchedCount >= totalMatchesRequired)
             {
                 OnBoardCompleted?.Invoke();
             }

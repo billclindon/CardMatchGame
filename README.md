@@ -22,9 +22,6 @@ Focused on scalable architecture, clean separation of concerns, and smooth inter
 - Established scalable data-driven architecture
 - Separated data layer from gameplay logic
 
-**Purpose:**  
-Provide flexible board configuration and extensibility for future content.
-
 ---
 
 ### ✅ Commit 3 – Card Logic + View Layer
@@ -33,73 +30,59 @@ Provide flexible board configuration and extensibility for future content.
 - Added scale-based flip animation (no rotation dependency)
 - Clean separation between model and presentation
 
-**Features:**
-- Smooth flip animation
-- State-driven behavior
-- Prepared for non-blocking gameplay flow
-
 ---
 
 ### ✅ Commit 4 – Board System + Input + Match Resolution
-- Implemented `Board` class
+- Implemented `Board`
 - Seed-based deterministic board generation
 - GridLayout-based dynamic card instantiation
 - Implemented `InputController`
 - Implemented `MatchResolver`
 - Interruptible resolution logic
 
-**Key Behavior:**
-- Continuous card flipping allowed
-- No hard input lock during comparison
-- Clean asynchronous match resolution
-- Supports multiple layouts:
-  - 2x2
-  - 2x3
-  - 5x6
-  - Easily expandable
-
 ---
 
 ### ✅ Commit 5 – Score System
 - Added `ScoreSystem`
-- Implemented combo-based scoring logic
+- Implemented combo-based scoring
 - Event-driven score updates
-- Decoupled from match resolution logic
-
-**Features:**
-- Rewards consecutive matches
-- Scales score dynamically via combo multiplier
-- Designed for UI and future leaderboard integration
+- Fully decoupled from match logic
 
 ---
 
 ### ✅ Commit 6 – Game Controller
 - Added `GameController`
-- Implemented board completion detection
-- Handles end-of-game flow
-- Replay / restart logic
+- Board completion detection
+- End-of-game handling
+- Replay / restart flow
 - Centralized game state orchestration
-
-**Features:**
-- Listens to board completion events
-- Triggers game-over state
-- Resets board and score cleanly for replay
-- Keeps systems loosely coupled
 
 ---
 
 ### ✅ Commit 7 – Save / Load System
 - Added `SaveLoadSystem`
-- Implemented snapshot-based persistence
+- Snapshot-based persistence
 - Serializes board state, score, combo, and seed
 - Force-resolves pending matches before saving
 - Restores full gameplay state on load
 
+---
+
+### ✅ Commit 8 – Sound System Integration
+- Integrated `SoundSystem`
+- Event-driven audio triggers
+- Connected to gameplay events:
+  - Card flip
+  - Match success
+  - Match failure
+  - Game over
+- Fully decoupled from core gameplay logic
+
 **Features:**
-- Deterministic state reconstruction
-- Prevents inconsistent saves during resolution
-- Clean separation from gameplay systems
-- Designed for cross-platform compatibility
+- Centralized audio management
+- Clean event subscription model
+- Easy extension for additional SFX
+- Designed for platform-safe playback
 
 ---
 
@@ -117,6 +100,9 @@ Provide flexible board configuration and extensibility for future content.
 - `GameController`
 - `SaveLoadSystem`
 
+### Systems
+- `SoundSystem`
+
 ### Presentation Layer
 - `CardView`
 
@@ -131,13 +117,14 @@ Clear separation of:
 - Resolution
 - Game flow orchestration
 - Persistence
+- Audio
 
 ---
 
 ## 🎯 Design Priorities
 
 1. Requirement compliance  
-2. Clean, modular code  
+2. Clean, modular architecture  
 3. Scalable layout system  
 4. Deterministic generation  
 5. Meaningful Git commit history  
@@ -145,17 +132,16 @@ Clear separation of:
 
 ---
 
-## 🔧 Technical Goals
+## 🔧 Technical Highlights
 
 - Unity 2021 LTS
-- Smooth scale-based flip animation
+- Scale-based flip animation
 - Interruptible match resolution
-- Deterministic board generation (seed-based)
-- Layout auto-scaling
 - Combo-based scoring
 - Event-driven architecture
-- Clean game flow management
-- Snapshot-based save/load system
+- Snapshot-based save/load
+- Integrated sound system
+- Clean game state orchestration
 
 ---
 
@@ -163,4 +149,4 @@ Clear separation of:
 
 This prototype prioritizes gameplay architecture and clean system design over visual polish.
 
-Commit history reflects incremental, team-style development.
+Commit history reflects incremental, production-style development.

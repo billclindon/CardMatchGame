@@ -70,6 +70,7 @@ namespace CardMatch.BoardSystem
         private void HandleMatch(Card a, Card b)
         {
             matchedCount++;
+            Debug.Log("Match found: " + a.name + " and " + b.name + " matchedCount: " + matchedCount + "/" + totalMatchesRequired);
 
             if (matchedCount >= totalMatchesRequired)
             {
@@ -122,7 +123,7 @@ namespace CardMatch.BoardSystem
                 matchResolver.UnregisterCard(card);
                 Destroy(card.gameObject);
             }
-
+            matchResolver.OnMatch -= HandleMatch;
             activeCards.Clear();
         }
     }

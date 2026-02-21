@@ -73,6 +73,21 @@ Provide flexible board configuration and extensibility for future content.
 
 ---
 
+### ✅ Commit 6 – Game Controller
+- Added `GameController`
+- Implemented board completion detection
+- Handles end-of-game flow
+- Replay / restart logic
+- Centralized game state orchestration
+
+**Features:**
+- Listens to board completion events
+- Triggers game-over state
+- Resets board and score cleanly for replay
+- Keeps systems loosely coupled
+
+---
+
 ## 🏗 Architecture Overview
 
 ### Data Layer
@@ -84,6 +99,7 @@ Provide flexible board configuration and extensibility for future content.
 - `Board`
 - `MatchResolver`
 - `ScoreSystem`
+- `GameController`
 
 ### Presentation Layer
 - `CardView`
@@ -97,17 +113,18 @@ Clear separation of:
 - View
 - Input
 - Resolution
+- Game flow orchestration
 
 ---
 
 ## 🎯 Design Priorities
 
-1. Requirement compliance
-2. Clean, modular code
-3. Scalable layout system
-4. Deterministic generation
-5. Meaningful Git commit history
-6. Optimized and warning-free implementation
+1. Requirement compliance  
+2. Clean, modular code  
+3. Scalable layout system  
+4. Deterministic generation  
+5. Meaningful Git commit history  
+6. Optimized and warning-free implementation  
 
 ---
 
@@ -120,6 +137,7 @@ Clear separation of:
 - Layout auto-scaling
 - Combo-based scoring
 - Event-driven architecture
+- Clean game flow management
 
 ---
 
@@ -128,18 +146,6 @@ Clear separation of:
 - Save / Load system
 - Sound effects integration
 - Desktop + Android build testing
-
----
-
-## 📁 High-Level Structure
-
-```
-Scripts/
- ├── Data/
- ├── Core/
- ├── View/
- ├── Systems/
-```
 
 ---
 

@@ -60,6 +60,19 @@ Provide flexible board configuration and extensibility for future content.
 
 ---
 
+### ✅ Commit 5 – Score System
+- Added `ScoreSystem`
+- Implemented combo-based scoring logic
+- Event-driven score updates
+- Decoupled from match resolution logic
+
+**Features:**
+- Rewards consecutive matches
+- Scales score dynamically via combo multiplier
+- Designed for UI and future leaderboard integration
+
+---
+
 ## 🏗 Architecture Overview
 
 ### Data Layer
@@ -70,6 +83,7 @@ Provide flexible board configuration and extensibility for future content.
 - `Card`
 - `Board`
 - `MatchResolver`
+- `ScoreSystem`
 
 ### Presentation Layer
 - `CardView`
@@ -104,14 +118,14 @@ Clear separation of:
 - Interruptible match resolution
 - Deterministic board generation (seed-based)
 - Layout auto-scaling
-- Clean C# architecture
+- Combo-based scoring
+- Event-driven architecture
 
 ---
 
 ## 🚀 Upcoming Additions
 
 - Save / Load system
-- Scoring system (combo-ready)
 - Sound effects integration
 - Desktop + Android build testing
 

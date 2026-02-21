@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ecb248ca5fa8d43aa26824f4e6d9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preset: 1
+  preset: 2
   cardParent: {fileID: 943993426}
   cardPrefab: {fileID: 8925775632035880352, guid: 6f24d329b9911ee45a4b79159a261c98,
     type: 3}

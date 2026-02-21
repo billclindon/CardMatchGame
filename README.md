@@ -88,6 +88,21 @@ Provide flexible board configuration and extensibility for future content.
 
 ---
 
+### ✅ Commit 7 – Save / Load System
+- Added `SaveLoadSystem`
+- Implemented snapshot-based persistence
+- Serializes board state, score, combo, and seed
+- Force-resolves pending matches before saving
+- Restores full gameplay state on load
+
+**Features:**
+- Deterministic state reconstruction
+- Prevents inconsistent saves during resolution
+- Clean separation from gameplay systems
+- Designed for cross-platform compatibility
+
+---
+
 ## 🏗 Architecture Overview
 
 ### Data Layer
@@ -100,6 +115,7 @@ Provide flexible board configuration and extensibility for future content.
 - `MatchResolver`
 - `ScoreSystem`
 - `GameController`
+- `SaveLoadSystem`
 
 ### Presentation Layer
 - `CardView`
@@ -114,6 +130,7 @@ Clear separation of:
 - Input
 - Resolution
 - Game flow orchestration
+- Persistence
 
 ---
 
@@ -138,14 +155,7 @@ Clear separation of:
 - Combo-based scoring
 - Event-driven architecture
 - Clean game flow management
-
----
-
-## 🚀 Upcoming Additions
-
-- Save / Load system
-- Sound effects integration
-- Desktop + Android build testing
+- Snapshot-based save/load system
 
 ---
 

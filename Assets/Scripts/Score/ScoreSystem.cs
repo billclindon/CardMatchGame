@@ -55,5 +55,13 @@ namespace CardMatch.Score
             OnScoreChanged?.Invoke(currentScore);
             OnComboChanged?.Invoke(currentCombo);
         }
+        public void Restore(int score, int combo)
+        {
+            currentScore = score;
+            currentCombo = combo;
+
+            OnScoreChanged?.Invoke(currentScore);
+            OnComboChanged?.Invoke(currentCombo);
+        }
     }
 }

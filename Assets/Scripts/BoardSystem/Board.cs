@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using CardMatch.Cards;
 using CardMatch.Config;
 using CardMatch.Match;
+using Unity.VisualScripting;
 
 namespace CardMatch.BoardSystem
 {
@@ -26,7 +27,7 @@ namespace CardMatch.BoardSystem
 
         private int seed;
         private int totalMatchesRequired;
-        private int matchedCount;
+        [HideInInspector]public int matchedCount;
 
         public int Seed => seed;
         public BoardPreset Preset => preset;
@@ -125,6 +126,53 @@ namespace CardMatch.BoardSystem
             }
             matchResolver.OnMatch -= HandleMatch;
             activeCards.Clear();
+        }
+        public List<Card> GetActiveCards()
+        {
+            return activeCards;
+        }
+
+        public void GenerateBoardFromSave(CardMatch.SaveLoad.SaveData data)
+        {
+            ClearBoard();
+
+            preset = data.preset;
+            seed = data.seed;
+
+            System.Random rng = new System.Random(seed);
+
+            (int rows, int columns) = GetDimensions(preset);
+
+            gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+            gridLayoutGroup.constraintCount = columns;
+
+            int totalCards = rows * columns;
+            totalMatchesRequired = totalCards / 2;
+            matchedCount = data.matchedCount;
+
+            List<CardData> selectedPairs = GeneratePairs(totalMatchesRequired, rng);
+            Shuffle(selectedPairs, rng);
+
+            for (int i = 0; i < selectedPairs.Count; i++)
+            {
+                Card cardInstance = Instantiate(cardPrefab, cardParent);
+                cardInstance.SetData(selectedPairs[i]);
+
+                activeCards.Add(cardInstance);
+                matchResolver.RegisterCard(cardInstance);
+
+                var savedState = data.cards[i];
+
+                if (savedState.state == (int)CardState.Matched)
+                {
+                    cardInstance.SetMatched();
+                }
+            }
+            matchResolver.OnMatch += HandleMatch;
+            if(matchedCount >= totalMatchesRequired)
+            {
+                OnBoardCompleted?.Invoke();
+            }
         }
     }
 }

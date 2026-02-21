@@ -67,7 +67,12 @@ namespace CardMatch.Cards
 
         public void DisableVisual()
         {
-            gameObject.SetActive(false);
+            // gameObject.SetActive(false);
+            if (frontImage != null)
+                frontImage.gameObject.SetActive(false);
+
+            if (backImage != null)
+                backImage.gameObject.SetActive(false);
         }
 
         public void ResetVisual()

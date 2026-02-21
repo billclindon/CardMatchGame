@@ -9,7 +9,7 @@ namespace CardMatch.Core
         // [SerializeField] private Camera uiCamera;
 
         public void OnPointerClick(PointerEventData eventData)
-        {
+        {Debug.Log(gameObject.name+" was clicked "+eventData.pointerPressRaycast.gameObject.name);
             if (eventData.pointerPressRaycast.gameObject == null)
                 return;
 

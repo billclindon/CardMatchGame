@@ -43,6 +43,11 @@ namespace CardMatch.BoardSystem
 
             seed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
             System.Random rng = new System.Random(seed);
+            preset += 1;
+            if(preset > BoardPreset.XL_5x6)
+            {
+                preset = BoardPreset.Small_2x2;
+            }
 
             (int rows, int columns) = GetDimensions(preset);
 

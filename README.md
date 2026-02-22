@@ -96,11 +96,11 @@ Focused on scalable architecture, clean separation of concerns, and smooth inter
 - `Card`
 - `Board`
 - `MatchResolver`
-- `ScoreSystem`
 - `GameController`
-- `SaveLoadSystem`
 
 ### Systems
+- `ScoreSystem`
+- `SaveLoadSystem`
 - `SoundSystem`
 
 ### Presentation Layer
